@@ -8,18 +8,19 @@
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
  */
-package com.zj.rabbitmq.mq;
+package com.zj.rabbitmq.receiver;
 
+import com.zj.rabbitmq.config.TopicRabbitConfig;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = "hello")
-public class Receiver2 {
+@RabbitListener(queues = TopicRabbitConfig.messages)
+public class Receiver4 {
     @RabbitHandler
     public void process(String hello) {
-        System.out.println("Receiver2 : " + hello);
+        System.out.println("Receiver4 : " + hello);
     }
 
 }

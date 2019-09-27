@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
  */
-package com.zj.rabbitmq.mq;
+package com.zj.rabbitmq.sender;
 
 import com.zj.rabbitmq.entity.Student;
 import org.springframework.amqp.core.AmqpTemplate;

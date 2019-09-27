@@ -1,9 +1,9 @@
 package com.zj.rabbitmq;
 
 import com.zj.rabbitmq.entity.Student;
-import com.zj.rabbitmq.mq.Sender1;
-import com.zj.rabbitmq.mq.Sender2;
-import com.zj.rabbitmq.mq.Sender3;
+import com.zj.rabbitmq.sender.Sender1;
+import com.zj.rabbitmq.sender.Sender2;
+import com.zj.rabbitmq.sender.Sender3;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

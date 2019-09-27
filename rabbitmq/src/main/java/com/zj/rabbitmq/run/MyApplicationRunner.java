@@ -10,8 +10,8 @@
  */
 package com.zj.rabbitmq.run;
 
-import com.zj.rabbitmq.mq.Receiver1;
-import com.zj.rabbitmq.mq.Receiver2;
+import com.zj.rabbitmq.receiver.Receiver1;
+import com.zj.rabbitmq.receiver.Receiver2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
