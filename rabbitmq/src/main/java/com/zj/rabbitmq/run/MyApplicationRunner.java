@@ -15,10 +15,17 @@ import com.zj.rabbitmq.receiver.Receiver2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 
+
+/**
+ * 随程序一起启动的系统任务
+ */
 @Component
+@Order(1)
 public class MyApplicationRunner implements ApplicationRunner {
 
     @Autowired
@@ -28,7 +35,9 @@ public class MyApplicationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments var1) {
-        //随服务启动，记录启动项
+        List<String> nonOptionArgs = var1.getNonOptionArgs();
+        System.out.println("main方法里启动的参数： "+nonOptionArgs);
+
         System.out.println("===========RabbitReceiver自启动==========");
         System.out.println("Receiver1地址:"+ receiver1.toString()+"");
         System.out.println("Receiver2地址:"+ receiver2.toString()+"");
