@@ -36,6 +36,11 @@ public class FanoutRabbitConfig {
         return new Queue("fanout.C");
     }
 
+//    @Bean
+//    public Queue DMessage() {
+//        return new Queue("topic.messages");
+//    }
+
     @Bean
     FanoutExchange fanoutExchange() {
         return new FanoutExchange("fanoutExchange");
@@ -55,5 +60,11 @@ public class FanoutRabbitConfig {
     Binding bindingExchangeC(Queue CMessage, FanoutExchange fanoutExchange) {
         return BindingBuilder.bind(CMessage).to(fanoutExchange);
     }
+
+
+//    @Bean
+//    Binding bindingExchangeD(Queue DMessage, FanoutExchange fanoutExchange) {
+//        return BindingBuilder.bind(DMessage).to(fanoutExchange);
+//    }
 
 }

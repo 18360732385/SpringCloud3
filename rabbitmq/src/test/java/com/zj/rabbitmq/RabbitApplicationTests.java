@@ -4,6 +4,7 @@ import com.zj.rabbitmq.entity.Student;
 import com.zj.rabbitmq.sender.Sender1;
 import com.zj.rabbitmq.sender.Sender2;
 import com.zj.rabbitmq.sender.Sender3;
+import com.zj.rabbitmq.sender.Sender4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class RabbitApplicationTests {
     private Sender2 sender2;
     @Autowired
     private Sender3 sender3;
+    @Autowired
+    private Sender4 sender4;
 
     @Test
     public void test() {
@@ -26,7 +29,11 @@ public class RabbitApplicationTests {
         int i=0;
         while(i<10){
             sender1.send(i);
-            //Thread.sleep(1000);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             i++;
         }
         System.out.println("##############Sender1生产消息结束#####");
@@ -39,7 +46,11 @@ public class RabbitApplicationTests {
         while(i<10){
             Student student = new Student("小明", i);
             sender2.send(student);
-            //Thread.sleep(1000);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             i++;
         }
         System.out.println("##############Sender2生产消息结束#####");
@@ -56,6 +67,19 @@ public class RabbitApplicationTests {
             i++;
         }
         System.out.println("##############Sender3生产消息结束#####");
+    }
+
+    @Test
+    public void test3() {
+        System.out.println("###############Sender4生产消息########");
+        int i=0;
+        while(i<10){
+            Student student = new Student("小明", i);
+            sender4.send(i);
+            //Thread.sleep(1000);
+            i++;
+        }
+        System.out.println("##############Sender4生产消息结束#####");
     }
 }
 

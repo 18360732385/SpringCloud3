@@ -25,7 +25,7 @@ public class Sender2 {
     //发送send2只会匹配到topic.messages
     public void send(Student student) {
         String msg = "消息:"+student;
-        System.out.println("Sender2_:"+":"+msg);
+        System.out.println("Sender2_"+":"+msg);
         this.rabbitTemplate.convertAndSend("exchange","topic.messages", msg);
     }
 }
